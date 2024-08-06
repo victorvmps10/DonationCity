@@ -5,11 +5,29 @@ import {
     StyleSheet, 
     TouchableOpacity, 
     ScrollView, 
-    Image
+    Image,
+    Alert
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import IcoNull from '../../components/IconNull.jpg';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../services/firebaseConnection';
 export default function Account(){
+    async function handleOut(){
+        Alert.alert('Aviso', 'Você está saindo da conta, confirma?',
+            [
+            {
+                text: 'Não',
+                onPress: ()=> {}
+            },
+            {
+                text: 'Sim',
+                onPress: async ()=> await signOut(auth)
+            }
+            ]
+        )
+        
+    }
  return (
    <SafeAreaView>
    <ScrollView showsVerticalScrollIndicator={false}>
@@ -39,7 +57,7 @@ export default function Account(){
         <Text style={style.TextButton}>FORMAS DE PAGAMENTO</Text>
     </TouchableOpacity>
    <View style={{alignContent: 'flex-end'}}>
-   <TouchableOpacity style={style.containerButton}>
+   <TouchableOpacity style={style.containerButton} onPress={handleOut}>
         <Text style={style.TextButton}>ENCERRAR SESSÃO</Text>
     </TouchableOpacity>
    </View>
