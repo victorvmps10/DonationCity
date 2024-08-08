@@ -4,7 +4,8 @@ import {
     SafeAreaView,
     StyleSheet, 
     TouchableOpacity, 
-    ScrollView 
+    ScrollView, 
+    ImageBackground
 } from 'react-native';
 import Entypo from "react-native-vector-icons/dist/Entypo";
 export default function Home(){
@@ -26,7 +27,9 @@ export default function Home(){
     </TouchableOpacity>
     <Text style={style.TitleOfScroll}> INSTITUTOS QUE VOCÊ SEGUE </Text>
     
-    <TouchableOpacity style={style.ItemContainer}></TouchableOpacity>
+    <TouchableOpacity style={style.ItemContainer}>
+        
+    </TouchableOpacity>
     <TouchableOpacity style={style.ItemContainer}></TouchableOpacity>
     <TouchableOpacity style={style.ItemContainer}></TouchableOpacity>
     <TouchableOpacity style={style.ItemContainer}></TouchableOpacity>
@@ -39,13 +42,10 @@ export default function Home(){
 
 const style = StyleSheet.create({
     header:{
+        margin: 10,
+        marginTop: 10,
         justifyContent: 'space-between',
         flexDirection: 'row',
-        height: 50,
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-        marginBottom: 5,
     },
     textHeader:{
         color: 'black',

@@ -12,7 +12,9 @@ import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import IcoNull from '../../components/IconNull.jpg';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../services/firebaseConnection';
+import { useNavigation } from '@react-navigation/native';
 export default function Account(){
+    const navigation = useNavigation();
     async function handleOut(){
         Alert.alert('Aviso', 'Você está saindo da conta, confirma?',
             [
@@ -23,6 +25,9 @@ export default function Account(){
             {
                 text: 'Sim',
                 onPress: async ()=> await signOut(auth)
+                .then(
+                    navigation.navigate('Welcome')   
+                )      
             }
             ]
         )
